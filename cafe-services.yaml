@@ -64,25 +64,3 @@ spec:
     name: http
   selector:
     app: tea
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-   name: my-cafe-ingress
-   annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-   rules:
-   - host: ingress.mycafe.com
-     http:
-      paths:
-       - path: /tea/
-         backend:
-           serviceName: tea-svc
-           servicePort: 80
-       - path: /coffee/
-         backend:
-           serviceName: coffee-svc
-           servicePort: 80
-
-
